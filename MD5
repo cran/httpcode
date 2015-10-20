@@ -1,0 +1,12 @@
+4353bcdd9e524e28a326cc922c7cc1d3 *DESCRIPTION
+232d5debe29b80d939ef88b184396afe *LICENSE
+3d581ef8c143fbdb2a3b04f06a655cb7 *NAMESPACE
+67d3fad1ba7441c69c15670aa82621b1 *R/cat_for_status.R
+784202c02ff8c9f0325fd9a543102001 *R/code.R
+e3f46791108c571a5b53621fcca88b5e *R/httpcode-package.R
+ef0a6f02b7e887776b73f6205a7270bc *R/status_codes.R
+a99c0d2b57fe3284dbae5cfff6477829 *R/zzz.R
+82f30f9ce24847700e4ffaf4c16836c0 *README.md
+8867a741798fb169795c2ef7e0a5715c *man/cat_for_status.Rd
+fa701553708ad94e84038bc4e3175f1a *man/http.Rd
+11de9d83b0cc70830ced1fb16b3f139b *man/httpcode-package.Rd
