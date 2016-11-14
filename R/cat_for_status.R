@@ -6,6 +6,8 @@
 #' @param code An http status code
 #' @param browse (logical) If \code{TRUE}, opens image in default browser. If
 #' \code{FALSE}, returns the URL of the image.
+#' @details uses a service for cats (https://http.cat) and
+#' dogs (https://httpstatusdogs.com)
 #' @return Opens image in your default browser, or returns URL
 #' @examples \dontrun{
 #' # give back url
@@ -25,8 +27,8 @@
 cat_for_status <- function(code, browse = FALSE){
   code <- as.character(code)
   if (code %in% names(status_codes)) {
-    url <- sprintf('http://httpcats.herokuapp.com/%s', code)
-    if (browse) browseURL(url) else url
+    url <- sprintf('https://http.cat/%s', code)
+    if (browse) utils::browseURL(url) else url
   } else {
     stopcode("No cat code found", "")
   }
@@ -37,8 +39,8 @@ cat_for_status <- function(code, browse = FALSE){
 dog_for_status <- function(code, browse = FALSE) {
   code <- as.character(code)
   if (code %in% names(status_codes)) {
-    url <- sprintf('http://httpstatusdogs.com/wp-content/uploads/%s.jpg', code)
-    if (browse) browseURL(url) else url
+    url <- sprintf('https://httpstatusdogs.com/wp-content/uploads/%s.jpg', code)
+    if (browse) utils::browseURL(url) else url
   } else {
     stopcode("No dog code found", "")
   }
