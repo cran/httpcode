@@ -2,20 +2,19 @@
 #'
 #' @name http
 #' @param code (character) An http status code, or a regex search for HTTP
-#' status codes.
+#' status codes. must be length 1. required
 #' @param text (character) A text string to search the messages or descriptions
-#' of HTTP status codes.
+#' of HTTP status codes. required
 #' @param verbose (logical) include verbose status code explanation.
-#' Default: \code{FALSE}
+#' Default: `FALSE`
 #'
-#' @return on S3 object of class \code{http_code}, that is inside a list
+#' @return on S3 object of class `http_code`, that is inside a list
 #' of the form:
-#' \itemize{
-#'  \item status_code - the status code
-#'  \item message - very brief message explaining the code
-#'  \item explanation - more verbose explanation, but still short
-#'  \item explanation_verbose - the complete explanation
-#' }
+#' 
+#' - status_code - the status code
+#' - message - very brief message explaining the code
+#' - explanation - more verbose explanation, but still short
+#' - explanation_verbose - the complete explanation
 #'
 #' @examples
 #' # search by code
@@ -51,7 +50,10 @@
 
 #' @export
 #' @rdname http
-http_code <- function(code = NULL, verbose = FALSE) {
+http_code <- function(code, verbose = FALSE) {
+  assert(code, c("numeric", "integer", "character"))
+  assert(verbose, "logical")
+  stopifnot(length(code) == 1)
   code <- as.character(code)
   if (is.null(code)) {
     print_codes()
@@ -66,7 +68,11 @@ http_code <- function(code = NULL, verbose = FALSE) {
 
 #' @export
 #' @rdname http
-http_search <- function(text = NULL, verbose = FALSE) print_search(text, verbose)
+http_search <- function(text, verbose = FALSE) {
+  assert(text, "character")
+  stopifnot(length(text) == 1)
+  print_search(text, verbose)
+}
 
 
 # helpers -------------------------------
